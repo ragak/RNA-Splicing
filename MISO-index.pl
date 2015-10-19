@@ -12,4 +12,10 @@ my $workdir3 = '/N/dc2/projects/RNAMap/raga/genomes/mm10';
 
 
 system "index_gff --index $workdir3/SE.mm10.gff3 $workdir2/indexed_SE_events_MISO/";
-
+system "index_gff --index $workdir3/A3SS.mm10.gff3 $workdir2/indexed_A3SS_events_MISO/";
+system "index_gff --index $workdir3/A5SS.mm10.gff3 $workdir2/indexed_A5SS_events_MISO/";
+system "index_gff --index $workdir3/AFE.mm10.gff3 $workdir2/indexed_AFE_events_MISO/";
+system "index_gff --index $workdir3/ALE.mm10.gff3 $workdir2/indexed_ALE_events_MISO/";
+system "index_gff --index $workdir3/MXE.mm10.gff3 $workdir2/indexed_MXE_events_MISO/";
+system "index_gff --index $workdir3/RI.mm10.gff3 $workdir2/indexed_RI_events_MISO/";
+system "index_gff --index $workdir3/TandemUTR.mm10.gff3 $workdir2/indexed_TandemUTR_events_MISO/";

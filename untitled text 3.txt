@@ -1,0 +1,12 @@
+INPUT=$(awk -v line=${PBS_ARRAYID} '{if (NR == line) { print $1 }}' /N/dc2/projects/RNAMap/jake/rna-seq/sampleList.txt)
+
+tophat -p 12 -o ${INPUT} --library-type fr-firststrand --transcriptome-index=/N/dc2/projects/RNAMap/jake/genome/bowtie2index/transcriptome/gencodeM6 /N/dc2/projects/RNAMap/jake/genome/bowtie2index/GRCm38.p3 /N/dc2/projects/RNAMap/jake/rna-seq/fastq/${INPUT}.1.noContam.fastq /N/dc2/projects/RNAMap/jake/rna-seq/fastq/${INPUT}.2.noContam.fastq
+
+cd /N/dc2/projects/RNAMap/jake/rna-seq/tophat/${INPUT}
+samtools view -bh -q 4 accepted_hits.bam > ${INPUT}.uniqueHits.bam
+mv ${INPUT}.uniqueHits.bam /N/dc2/projects/RNAMap/jake/rna-seq/bam/
+
+#STAR
+#you do not need to specify strandedness here, just remember in downstream applications
+
+STAR --genomeDir mm9-starIndex/ --genomeLoad LoadAndKeep --runThreadN 24 --readFilesIn read1.fastq read2.fastq --outFileNamePrefix Experiment1Star

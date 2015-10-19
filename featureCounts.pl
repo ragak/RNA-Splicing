@@ -11,4 +11,4 @@ my $workdir2 = ' /N/dc2/projects/RNAMap/raga/genomes'
 #my @outfiles = ("$workdir/KO1.fastq","$workdir/KO2.fastq","$workdir/Rev1.fastq","$workdir/Rev2.fastq");
 
 
-system "featureCounts -a $workdir2/gencode.vM6.basic.annotation.gtf -p -g gene_id -t exon -s 2 -o $workdir3/featureCounts_byexon.txt $workdir/KO1-sorted.bam $workdir/KO2-sorted.bam $workdir/Rev1-sorted.bam $workdir/Rev2-sorted.bam";
+system "featureCounts -T 2 -a $workdir2/gencode.vM6.basic.annotation.gtf -p -g gene_id -t exon -s 2 -o $workdir3/featureCounts_byexon.txt $workdir/KO1-sorted.bam $workdir/KO2-sorted.bam $workdir/Rev1-sorted.bam $workdir/Rev2-sorted.b
